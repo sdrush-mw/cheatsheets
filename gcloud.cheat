@@ -1,0 +1,39 @@
+% gcloud, google, gcp, cloud
+
+# Set account
+gcloud config set account <account>
+
+$ account: gcloud auth list | awk '{if (NR>2) {print $2}}'
+
+# Change project
+gcloud config set project <project_id>
+
+$ project_id: gcloud projects list | awk '{if (NR!=1) {print $1}}'
+
+# Change compute region
+gcloud config set compute/region <region>
+
+$ region: gcloud compute regions list | awk '{if (NR!=1) {print $1}}'
+
+# Change compute zone
+gcloud config set compute/zone <zone>
+
+$ zone: gcloud compute zones list | awk '{if (NR!=1) {print $1}}'
+
+# Search help for terms
+gcloud help -- "<search_terms>"
+
+$ search_terms: 
+
+# Show help for a given command
+gcloud help <command>
+
+$ command: 
+
+# Display all GCE Instances
+gcloud compute instances list
+
+# SSH into a GCE Instances
+gcloud compute ssh <instance>
+
+$ instance: gcloud compute instances list | awk '{if (NR!=1) {print $1}}'
